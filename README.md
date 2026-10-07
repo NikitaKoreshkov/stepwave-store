@@ -11,9 +11,6 @@ A catalog storefront with registration, password reset by email code and a clien
     <td><img src=".github/assets/product.jpg" alt="Product page" /></td>
     <td><img src=".github/assets/dashboard.jpg" alt="Client area behind login" /></td>
   </tr>
-  <tr>
-    <td colspan="2" align="center"><img src=".github/assets/mobile-landing.jpg" alt="Landing on a 390px viewport" width="300" /></td>
-  </tr>
 </table>
 
 ## Stack
