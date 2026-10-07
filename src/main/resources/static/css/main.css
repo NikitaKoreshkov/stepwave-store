@@ -1,0 +1,1170 @@
+/* Устанавливаем черный фон для всей страницы */
+html, body {
+    background-color: #1a1a1a; /* Черный фон */
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+
+/* Серая линия от левого края до правого */
+.gray-line {
+    background-color: #1f1f1f; /* Серая линия */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 20;
+}
+
+/* Кнопки в правом верхнем углу */
+.btn-top {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+.btn-top:hover {
+    background-color: #1f1f1f;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Разделитель между кнопками */
+.gray-line span {
+    color: white;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+/* Стиль для выпадающего списка с выбором языка */
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #1a1a1a;  /* Темный фон */
+    border-radius: 10px;
+    width: 120px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);  /* Тень */
+    z-index: 25;
+}
+
+/* Стили для списка языков */
+.language-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Стиль для каждого элемента списка */
+.language-dropdown ul li {
+    padding: 6px;
+    color: #888;  /* Серый цвет текста */
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;  /* Размер шрифта, как в кнопке помощи */
+    font-weight: normal;  /* Не жирный */
+}
+
+/* При наведении на элемент список языков */
+.language-dropdown ul li:hover {
+    background-color: #1a1a1a;  /* Цвет фона при наведении */
+    color: #f0f0f0;  /* Белый текст при наведении */
+    transform: none;  /* Без увеличения */
+}
+
+/* Показать меню */
+.language-dropdown.show {
+    display: block;
+}
+
+/* Второй прямоугольник с кнопками */
+.second-rectangle {
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+/* Логотип слева */
+.logo-left {
+    width: 70px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Контейнер для кнопок навигации */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: auto;
+    flex-grow: 1;
+    margin-left: 270px;
+    margin-right: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #1f1f1f;
+    transform: scale(1.05);
+}
+
+/* Блок для поиска и иконок справа */
+.search-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стиль для поля поиска */
+.search-input {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+}
+
+/* Иконки */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+
+@font-face {
+    font-family: 'PredFont'; /* Название шрифта, которое мы будем использовать */
+    src: url('/static/fonts/pred.otf') format('opentype'); /* Путь к шрифту */
+}
+
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Стиль для выпадающего меню помощи */
+.help-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 180px; /* Сдвигаем окно левее */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    z-index: 15;
+}
+
+/* Стили внутри окна помощи */
+.help-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-dropdown ul li {
+    padding: 10px;
+    color: #888;  /* Цвет текста серый */
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;  /* Размер шрифта */
+    font-weight: normal;  /* Убираем жирность */
+    transition: color 0.1s ease; /* Плавное изменение цвета */
+}
+
+/* При наведении цвет становится белым */
+.help-dropdown ul li:hover {
+    background-color: #1a1a1a;  /* Этот цвет теперь будет совпадать с фоном окна */
+    color: #f0f0f0;  /* Белый цвет текста при наведении */
+    transform: none; /* Убираем увеличение при наведении */
+}
+
+/* Показываем окно при наведении на кнопку */
+#helpBtn:hover + .help-dropdown {
+    display: block;
+}
+
+/* Скрываем окно, когда курсор уходит с окна */
+.help-dropdown:hover {
+    display: block;
+}
+
+/* Стиль для кнопки "Войти" */
+#loginButton {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+#loginButton:hover {
+    background-color: #1f1f1f;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Окно регистрации (по умолчанию скрыто) */
+.register-window {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+/* Модальное окно должно быть поверх всех элементов */
+#registerWindow.show {
+    display: block;
+}
+
+/* Для фона при открытом окне регистрации */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный */
+    z-index: 999; /* Появляется за окном регистрации */
+}
+
+/* Контейнер для видео */
+.video-container {
+    width: 100%; /* Ширина на весь экран */
+    height: calc(100vw * 9 / 21); /* Высота с учетом соотношения 21:9 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Обрезать лишнее видео, если оно выходит за пределы */
+    background-color: #1a1a1a; /* Фон для контраста */
+    margin-top: -20px;
+    padding: 20px 0;
+}
+
+/* Видео */
+.video-container video {
+    width: 100%; /* Видео адаптируется по ширине контейнера */
+    height: 100%; /* Видео адаптируется по высоте контейнера */
+    object-fit: cover; /* Сохраняет пропорции видео и обрезает лишнее */
+    border: none; /* Убираем рамки вокруг видео */
+    object-fit: cover; /* Обрезка видео */
+    object-position: top; /* Обрезка верхней части видео */
+}
+
+/* Текст после видео */
+.intro-text {
+    text-align: center;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: #1a1a1a; /* Черный фон */
+    padding-top: 30px; /* Устанавливаем отступ сверху, чтобы поднять текст */
+    padding-bottom: 20px; /* Устанавливаем отступ снизу */
+    z-index: 1;
+}
+
+/* Каждый заголовок на новой строке */
+.intro-text h1, .intro-text h2, .intro-text h3 {
+    display: block; /* Убедимся, что каждый текст на новой строке */
+    margin: 0; /* Убираем отступы */
+}
+
+/* Заголовок 1 */
+.intro-text h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 0px;
+    margin-top: 10px;
+}
+
+/* Заголовок 2 */
+.intro-text h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 0px;
+    margin-top: 10px;
+}
+
+/* Заголовок 3 */
+.intro-text h3 {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* Контейнер для всех изображений */
+.photo-grid {
+    display: grid; /* Используем сетку для удобного расположения */
+    grid-template-columns: repeat(2, 1fr); /* Два столбца */
+    gap: 20px; /* Расстояние между изображениями */
+    position: relative; /* Для удобного позиционирования изображений */
+}
+
+/* Общие стили для всех изображений */
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0px;
+    position: relative;
+}
+
+
+#photo1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Центрируем по верху */
+    clip-path: inset(21% 0% 20% 0%); /* Обрезка сверху */
+    top: -180px; /* Поднимаем изображение вверх (отрицательное значение) */
+}
+
+/* Индивидуальные стили для второго изображения */
+#photo2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    clip-path: inset(20% 0% 20.8% 0%);
+    top: -170px; /* Поднимаем изображение вверх (отрицательное значение) */
+}
+
+/* Индивидуальные стили для третьего изображения */
+#photo3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    clip-path: inset(30% 0% 10% 0%);
+    top: -725px; /* Поднимаем изображение еще выше */
+}
+
+/* Индивидуальные стили для четвертого изображения */
+#photo4 {
+    width: 100%;
+    height: 60.2%;
+    object-fit: cover;
+    object-position: top;
+    clip-path: inset(0% 0% 0% 0%);
+    top: -408px; /* Поднимаем изображение вверх */
+}
+
+.text-container {
+  font-family: "PredFont";
+  margin-top: 20px;
+  gap: 20px; /* Расстояние между блоками текста */
+  z-index: -1;
+}
+
+/* Общий стиль для всех блоков */
+.text-item {
+font-family: "PredFont";
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Ширина блока */
+  max-width: 600px; /* Максимальная ширина */
+  text-align: center;
+  position: absolute; /* Абсолютное позиционирование для свободного перемещения */
+  transition: transform 0.3s ease; /* Плавный эффект для перемещения */
+}
+
+/* Пример редактирования расположения и размеров блоков */
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px; /* Расстояние между блоками текста */
+}
+
+.text-item {
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Ширина блока */
+  max-width: 600px; /* Максимальная ширина */
+  text-align: center;
+  position: sticky; /* Блоки будут оставаться на месте при прокрутке */
+  top: 20px; /* Отступ сверху, блок будет "прилипать" к этому положению */
+  transition: transform 0.3s ease; /* Плавный эффект для перемещения */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px; /* Расстояние между блоками текста */
+}
+
+.text-item {
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%; /* Ширина блока */
+  max-width: 600px; /* Максимальная ширина */
+  text-align: center;
+  position: relative; /* Используем относительное позиционирование */
+  transition: transform 0.3s ease; /* Плавный эффект для перемещения */
+}
+
+/* Пример редактирования расположения и размеров блоков */
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Изменено на 'flex-start' для выравнивания текста слева */
+  margin-top: 20px;
+  gap: 20px; /* Расстояние между блоками текста */
+}
+
+/* Для прямоугольников с текстом, которые будут выглядеть как кнопки */
+.text-item {
+  background-color: rgba(0, 0, 0, 0.5); /* Прозрачный черный фон */
+  color: white;
+  padding: 20px; /* Отступы для каждого блока */
+  border-radius: 10px; /* Закругление углов */
+  width: 80%; /* Ширина блока */
+  max-width: 600px; /* Максимальная ширина */
+  text-align: center; /* Центрируем текст */
+  font-size: 18px; /* Размер текста */
+  border: none; /* Убираем рамку */
+  cursor: pointer; /* Курсор становится указателем, как для кнопки */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный эффект для увеличения и тени */
+}
+
+.text-item:hover {
+  transform: scale(1.05); /* Увеличиваем блок при наведении на 5% */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Добавляем тень для эффекта "кнопки" */
+}
+
+.text-item:active {
+  transform: scale(0.98); /* Немного уменьшает блок, когда нажимается */
+}
+
+/* Пример редактирования расположения и размеров блоков */
+
+/* Для первого блока */
+#text1 {
+  background-color: rgba(0, 0, 0, 0.3);
+  clip-path: inset(15% 0% 10% 0%);
+  border-radius: 5px;
+  margin-top: -1650px;
+  margin-left: 8px;
+  color: white;
+  font-size: 16px;
+  padding: 2px; /* Отступы для первого блока */
+  width: 320px; /* Уменьшаем ширину первого блока */
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Для второго блока */
+#text2 {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: -120px;
+  margin-left: 875px;
+  color: white;
+  font-size: 16px;
+  padding: 2px; /* Отступы для второго блока */
+  border-radius: 0px;
+  width: 300px; /* Уменьшаем ширину второго блока */
+  clip-path: inset(15% 0% 10% 0%);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Для третьего блока */
+#text3 {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: 500px;
+  margin-left: -8px;
+  color: white;
+  font-size: 16px;
+  padding: 20px; /* Отступы для третьего блока */
+  border-radius: 10px;
+  width: 390px; /* Уменьшаем ширину третьего блока */
+  clip-path: inset(20% 0% 15% 4%);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Для четвертого блока */
+#text4 {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-top: -170px;
+  margin-left: 857px;
+  color: white;
+  font-size: 16px;
+  padding: 25px; /* Отступы для четвертого блока */
+  border-radius: 10px;
+  width: 400px; /* Уменьшаем ширину четвертого блока */
+  clip-path: inset(20% 25% 15% 4%);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Контейнер для изображения */
+.full-image-container {
+  position: relative;
+  top: -60%;
+  width: 100%; /* Растягиваем на всю ширину экрана */
+  height: 500px; /* Можно настроить высоту изображения */
+  background-image: url('/static/images/photo/nba (1).jpg'); /* Путь к изображению */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Базовый стиль для текста */
+.text {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  z-index: 1;
+  text-align: center; /* Центрируем текст по горизонтали */
+  width: 100%; /* Для центрирования текста на всю ширину */
+}
+
+.latest-drops {
+  top: -40%;
+  margin-left: 0px;
+  letter-spacing: 0px;
+  text-align: center;
+  font-size: 23px;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.feature-text {
+  top: -28%;
+  margin-left: 0px;
+  letter-spacing: 0px;
+  font-size: 23px;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.additional-text {
+  top: -16%;
+  margin-left: 0px;
+  letter-spacing: 4px;
+  font-size: 50px;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.shoes-list {
+    overflow: hidden; /* Скрывает лишние элементы */
+    width: 100%; /* Контейнер шириной в 100% */
+    position: relative;
+    height: 300px; /* Настройте высоту в зависимости от фотографий */
+    top: -350px;
+}
+
+.shoes-list-wrapper {
+    display: flex;
+    gap: 20px; /* Отступ между элементами */
+    will-change: transform; /* Оптимизация для анимации */
+    position: relative;
+}
+
+.shoe-item {
+    flex-shrink: 0; /* Фиксируем ширину элементов */
+    width: 220px; /* Задаем ширину для всех карточек */
+}
+
+.shoe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer; /* Меняем указатель на "руку" */
+    transition: transform 0.3s ease; /* Плавный переход при увеличении */
+}
+
+.shoe-item img:hover {
+    transform: scale(1.1); /* Увеличиваем размер на 10% */
+}
+
+
+.classic-text {
+    font-family: 'PredFont', sans-serif; /* Используем ваш шрифт */
+    font-size: 50px; /* Размер шрифта */
+    font-weight: bold; /* Делаем текст жирным */
+    position: relative; /* Позволяет позиционировать элемент */
+    color: #fff; /* Цвет текста (белый) */
+    top: -85%;
+    text-align: center;
+    letter-spacing: 10px;
+    ext-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
+}
+
+.proven-text {
+    font-family: 'PredFont', sans-serif; /* Используем кастомный шрифт */
+    text-align: center; /* Выравниваем текст по центру */
+    font-size: 30px; /* Размер шрифта для второго текста */
+    line-height: 1.2; /* Высота строки */
+    color: #fff; /* Цвет текста (белый) */
+    margin-top: -760px;
+    ext-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
+}
+
+
+
+.brand-logos {
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение логотипов */
+    align-items: center;
+    margin: 550px 0;
+    gap: 20px; /* Расстояние между логотипами */
+}
+
+.brand-logo {
+    width: 100px; /* Устанавливаем ширину логотипа */
+    height: auto; /* Автоматически подгоняем высоту */
+    cursor: pointer; /* Меняем курсор на указатель */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавляем эффект наведения */
+}
+
+.brand-logo:hover {
+    transform: scale(1.1); /* Увеличиваем размер логотипа при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Добавляем легкую тень */
+}
+
+.welcome-text {
+    margin-top: -400px; /* Отступ сверху */
+    text-align: center; /* Центровка текста */
+    font-family: 'PredFont', sans-serif; /* Ваш кастомный шрифт */
+    color: white; /* Белый цвет текста */
+    line-height: 1.5; /* Высота строки для читабельности */
+    font-size: 15px; /* Размер текста */
+    width: 80%; /* Ширина блока */
+    max-width: 800px; /* Максимальная ширина */
+    margin-left: auto; /* Центровка блока */
+    margin-right: auto; /* Центровка блока */
+    padding: 10px; /* Внутренний отступ */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around; /* Равномерное распределение по горизонтали */
+    align-items: center; /* Выравнивание текста по центру */
+    margin-top: 130px; /* Отступ сверху */
+    text-align: center; /* Выравнивание текста */
+    font-family: 'PredFont', sans-serif; /* Кастомный шрифт */
+    color: white; /* Цвет текста (золотистый, как на примере) */
+    font-size: 16px; /* Размер шрифта */
+    text-transform: uppercase; /* Заглавные буквы */
+}
+
+.footer-item {
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    color: #8a8a8a; /* Изначально серый текст */
+    transition: color 0.3s ease, transform 0.3s ease; /* Плавное изменение цвета и легкий эффект увеличения */
+}
+
+.footer-item:hover {
+    color: #ffffff; /* Ярко-белый цвет при наведении */
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.about-button-container {
+    display: flex;
+    justify-content: center; /* Центрируем кнопку */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.about-btn {
+    background-color: #1a1a1a; /* Темный фон */
+    color: #404040; /* Серый текст по умолчанию */
+    border: 0px solid #404040; /* Серый обводка */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Плавный переход цвета */
+    margin-left: -1380px;
+    margin-top: 40px;
+}
+
+.about-btn:hover {
+    color: #ffffff; /* Белый текст при наведении */
+}
+
+
+
+/* Общий стиль для модального окна */
+.modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex; /* Используем flexbox для центрирования */
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background-color: #1a1a1a; /* Цвет модального окна */
+    color: white;
+    padding: 30px; /* Увеличенные отступы */
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-family: 'PredFont', sans-serif;
+    overflow-y: auto; /* Добавляем прокрутку, если текст длинный */
+    max-height: 80%; /* Ограничиваем высоту окна */
+    display: flex;
+    flex-direction: column; /* Размещение текста по вертикали */
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    line-height: 1.6; /* Увеличиваем межстрочный интервал */
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Центрирование текста в самом контейнере */
+.modal-content p, .modal-content h1, .modal-content h2 {
+    margin: 10px 0; /* Добавление отступов между параграфами */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Логотип в правом нижнем углу */
+.modal-logo {
+    position: absolute;
+    bottom: 10px; /* Отступ снизу */
+    right: 10px; /* Отступ справа */
+    width: 100px; /* Установите нужный размер */
+    height: auto;
+}
+
+
+
+
+
+/* Кнопка "Связаться с нами" */
+.contact-btn {
+    background-color: #1a1a1a; /* Темный фон кнопки */
+    color: #404040; /* Темно-серый текст по умолчанию */
+    border: none; /* Без обводки */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    padding: 10px 20px; /* Внутренние отступы */
+    transition: color 0.3s ease; /* Плавное изменение цвета текста */
+    margin-left: 500px;
+    position: relative; /* Позволяет сдвигать кнопку */
+    top: -30px; /* Поднятие кнопки на 10px вверх */
+}
+
+/* Эффект при наведении */
+.contact-btn:hover {
+    color: #ffffff; /* Ярко белый текст при наведении */
+}
+
+
+
+/* Модальное окно */
+#contact-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-family: 'PredFont', sans-serif;
+    overflow-y: auto;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Центрирование текста в контейнере */
+.modal-content p, .modal-content h1, .modal-content h2 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+
+
+/* Кнопка "Доставка" */
+.delivery-btn {
+    background-color: #1a1a1a; /* Темный фон кнопки */
+    color: #404040; /* Темно-серый текст по умолчанию */
+    border: none; /* Без обводки */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Закругленные углы */
+    transition: color 0.3s ease; /* Плавное изменение цвета текста */
+    margin-left: 200px;
+    position: relative; /* Позволяет сдвигать кнопку */
+    top: -30px; /* Поднятие кнопки на 10px вверх */
+}
+
+/* Эффект при наведении для кнопки "Доставка" */
+.delivery-btn:hover {
+    color: #ffffff; /* Ярко белый текст при наведении */
+}
+
+/* Кнопка "Возврат и обмен" */
+.return-btn {
+    background-color: #1a1a1a; /* Темный фон кнопки */
+    color: #404040; /* Темно-серый текст по умолчанию */
+    border: none; /* Без обводки */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Закругленные углы */
+    transition: color 0.3s ease; /* Плавное изменение цвета текста */
+    margin-left: -115px;
+    position: relative; /* Позволяет сдвигать кнопку */
+    top: 20px; /* Поднятие кнопки на 10px вверх */
+}
+
+/* Эффект при наведении для кнопки "Возврат и обмен" */
+.return-btn:hover {
+    color: #ffffff; /* Ярко белый текст при наведении */
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-family: 'PredFont', sans-serif;
+    overflow-y: auto;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Центрирование текста в контейнере */
+.modal-content p, .modal-content h1, .modal-content h2 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+/* Кнопка "Политика конфиденциальности" */
+.privacy-btn {
+    background-color: #1a1a1a;
+    color: #404040;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: color 0.3s ease;
+    margin-left: 300px;
+    position: relative; /* Позволяет сдвигать кнопку */
+    top: -30px; /* Поднятие кнопки на 10px вверх */
+}
+
+/* Эффект при наведении для кнопки "Политика конфиденциальности" */
+.privacy-btn:hover {
+    color: #ffffff; /* Ярко белый текст при наведении */
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-family: 'PredFont', sans-serif;
+    overflow-y: auto;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Центрирование текста в контейнере */
+.modal-content p, .modal-content h1, .modal-content h2 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+  margin-top: 150px; /* Добавление отступа сверху */
+}
+
+
+
+/* Стили для серой линии с кнопками "Помощь", "Войти", "Язык" */
+.gray-line {
+    background-color: #1f1f1f; /* Серая линия */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;  /* Фиксированное позиционирование */
+    top: 0;
+    z-index: 30; /* Увеличенный z-index, чтобы он был поверх второго */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Стили для второго прямоугольника (второй бар с кнопками) */
+.second-rectangle {
+    position: fixed;
+    top: 30px;  /* Отступ сверху */
+    width: 100%;
+    height: 50px;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 20; /* Меньший z-index */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Когда элементы должны скрыться */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0; /* Скрываем элемент, уменьшая его высоту */
+}
+
+/* Стили для выпадающего меню помощи */
+.help-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 180px; /* Сдвигаем окно левее */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    z-index: 40; /* Устанавливаем z-index выше, чтобы меню было сверху */
+}
+
+/* Показываем окно при наведении на кнопку */
+#helpBtn:hover + .help-dropdown {
+    display: block;
+}
+
+/* Стили для списка в выпадающем меню */
+.help-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-dropdown ul li {
+    padding: 10px;
+    color: #888; /* Цвет текста серый */
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px; /* Размер шрифта */
+    font-weight: normal;
+    transition: color 0.1s ease; /* Плавное изменение цвета */
+}
+
+/* При наведении цвет становится белым */
+.help-dropdown ul li:hover {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}

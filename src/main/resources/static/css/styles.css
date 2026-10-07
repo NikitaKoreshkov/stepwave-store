@@ -1,0 +1,455 @@
+/* Общий стиль для страницы */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Фон и обертка для всех элементов */
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Стили для контейнера с текстом и кнопками */
+.container {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 0.5px solid white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 70%;
+    max-width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+}
+
+/* Заголовок с названием магазина */
+#store-name {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 90px;
+    margin-top: -120px;
+}
+
+/* Стиль для первой строки "Добро пожаловать!" */
+.welcome-bold {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Стиль для второй строки "Пожалуйста, войдите в систему, чтобы продолжить." */
+.welcome-subtext {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: -10px;
+    color: #cccccc;
+}
+
+/* Кнопки */
+.btn {
+    background-color: #555;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #555;
+}
+
+#language-select {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="white" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    width: 70px;
+    text-align: center;
+}
+
+/* Контейнер для select с языком */
+.language-select-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Стиль для полей ввода */
+input[type="text"], input[type="password"] {
+    background-color: #444;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 8px 0;
+    width: 100%;
+    text-align: left;
+}
+
+/* Иконка глаза внутри поля пароля */
+.password-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px; /* Размер иконки */
+    height: 20px;
+}
+
+/* Стили для ссылки "Забыли пароль?" */
+.forgot-password {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/* Изменение цвета на красный при наведении */
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Стили для изображения слева и справа */
+.image-left, .image-right {
+    max-width: 350px;
+    margin: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.image-left {
+    left: -5%;
+}
+
+.image-right {
+    right: -5%;
+}
+
+.image-left, .image-right {
+    width: 50%;
+    max-width: 800px;
+    height: auto;
+}
+
+.image-right {
+    right: 5%;
+    margin-top: 50px;
+    transform: translateX(23%);
+}
+
+/* Стиль для поля ввода email в окне сброса пароля */
+#reset-email {
+    background-color: #444;
+    color: white;
+    padding: 12px 20px;  /* Увеличиваем отступы для большего размера */
+    font-size: 16px;      /* Устанавливаем подходящий размер шрифта */
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 15px 0;       /* Увеличиваем отступы сверху и снизу */
+    width: 100%;          /* Делаем поле на всю ширину */
+    box-sizing: border-box;  /* Чтобы ширина учитывала отступы */
+    text-align: left;
+}
+
+/* Кнопка "Назад" черного цвета с белой обводкой */
+.btn-back {
+    background-color: #000;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #444;
+    box-shadow: 0 0 20px white;
+    transform: scale(1.05);
+}
+
+/* Окно ошибки при вводе пароля */
+#error-message {
+    display: none;
+    position: fixed;
+    top: 50px; /* Начальная позиция сверху */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000; /* Черный фон */
+    color: red; /* Красный текст */
+    border: 2px solid red; /* Красная обводка */
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.5s ease forwards; /* Анимация появления */
+}
+
+/* Анимация для сообщения ошибки */
+@keyframes slideDown {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        top: 50px;
+        opacity: 1;
+    }
+}
+
+/* Анимация для скрытия сообщения ошибки */
+@keyframes slideUp {
+    0% {
+        top: 50px;
+        opacity: 1;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+/* Красная обводка для кнопки и поля ввода при ошибке */
+input[type="password"].invalid, .btn.invalid {
+    border: 2px solid red; /* Красная обводка */
+    background-color: #000; /* Черный фон */
+    color: red; /* Красный цвет текста */
+}
+
+.btn.invalid:hover {
+    background-color: #000;
+    transform: scale(1.05);
+}
+
+/* Белая иконка глаза при ошибке */
+.eye-icon.invalid {
+    filter: brightness(0) invert(1);  /* Делаем иконку белой */
+}
+
+/* Стиль для всплывающего окна с сообщением */
+#success-account-message {
+    display: none;
+    position: fixed;
+    top: 50px; /* Располагаем окно 50px от верхнего края */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    background-color: #000; /* Черный фон */
+    color: green; /* Зеленый текст */
+    border: 2px solid green; /* Зеленая обводка */
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000; /* Поверх всех остальных элементов */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    animation: slideDown 0.5s ease forwards; /* Анимация появления */
+}
+
+/* Анимация для сообщения */
+@keyframes slideDown {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        top: 50px;
+        opacity: 1;
+    }
+}
+
+/* Стиль для кнопки и поля ввода при ошибке логина */
+input#new-username.invalid, .btn.invalid {
+    border: 2px solid red; /* Красная обводка */
+    background-color: #000; /* Черный фон */
+    color: red; /* Красный текст */
+}
+
+/* Стили для кнопки регистрации при ошибке */
+#register-submit.invalid {
+    background-color: black;
+    color: red;
+}
+
+/* Стиль для скрытия сообщения об ошибке через анимацию */
+#error-message.hide {
+    animation: slideUp 0.5s ease forwards;
+}
+
+/* Стили для кнопки и поля ввода имени пользователя при ошибке */
+#new-username.invalid {
+    background-color: #000; /* Черный фон */
+    color: red; /* Красный текст */
+    border: 2px solid red; /* Красная обводка */
+}
+
+/* Модальное окно для ошибки */
+.error-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    display: none; /* Скрыто по умолчанию */
+    justify-content: center;
+    align-items: center;
+}
+
+.error-content {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    border: 2px solid red; /* Красная обводка */
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.error-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.error-content button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/* Окно с сообщением об успешной отправке письма */
+#password-reset-success {
+    background-color: #000; /* Черный фон */
+    color: #28a745; /* Зеленый текст */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10;  /* Устанавливаем ниже для окна с ошибкой */
+    display: none;  /* скрыто по умолчанию */
+    border: 2px solid #28a745; /* Зеленая обводка */
+    animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+}
+
+/* Форма для сброса пароля */
+#reset-password-form {
+    position: relative; /* Позиционируем форму */
+    z-index: 1; /* Устанавливаем форму на уровень выше окна успеха */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Начальная непрозрачность */
+        transform: translateY(-20px); /* Начальная позиция сверху */
+    }
+    100% {
+        opacity: 1; /* Конечная непрозрачность */
+        transform: translateY(0); /* Конечная позиция */
+    }
+}
+
+/* Когда класс .visible добавлен, окно появляется */
+#password-reset-success.visible {
+    display: block; /* Показываем окно */
+}
+
+
+/* Окно с сообщением об ошибке */
+#reset-error-message {
+    background-color: #000; /* Черный фон */
+    color: #ff4d4d; /* Красный текст */
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9999;
+    display: none;  /* скрыто по умолчанию */
+    border: 2px solid #ff4d4d; /* Красная обводка */
+    animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Начальная непрозрачность */
+        transform: translateY(-20px); /* Начальная позиция сверху */
+    }
+    100% {
+        opacity: 1; /* Конечная непрозрачность */
+        transform: translateY(0); /* Конечная позиция */
+    }
+}
+
+/* Когда класс .visible добавлен, окно появляется */
+#reset-error-message.visible {
+    display: block; /* Показываем окно */
+}
+
+
+
+/* Анимация загрузки для кнопки */
+@keyframes loadingAnimation {
+    0% {
+        background-color: #007bff;
+    }
+    50% {
+        background-color: #0056b3;
+    }
+    100% {
+        background-color: #007bff;
+    }
+}
+
+.btn-loading {
+    animation: loadingAnimation 2s ease-in-out infinite;
+}

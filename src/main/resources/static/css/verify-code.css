@@ -1,0 +1,119 @@
+/* Основной стиль для страницы */
+body {
+  background-color: #121212; /* Темный фон */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh; /* Растягиваем страницу на всю высоту */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Контейнер для формы подтверждения */
+.verifycode {
+  background-color: rgba(0, 0, 0, 0.4); /* Прозрачный черный фон */
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 100px rgba(0, 0, 0, 4);
+}
+
+.verifycode h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.verifycode p {
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.verifycode input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* Сообщения об успехе и ошибке */
+#successMessage {
+  color: #32CD32; /* Зеленый */
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+#errorMessage {
+  color: red;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+
+.verifycode {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+#loadingIndicator {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    margin: 10px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

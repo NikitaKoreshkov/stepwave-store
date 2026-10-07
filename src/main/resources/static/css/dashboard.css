@@ -1,0 +1,464 @@
+
+/* Устанавливаем черный фон для всей страницы */
+html, body {
+    background-color: #1a1a1a; /* Черный фон */
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Убираем горизонтальный скролл */
+}
+
+
+/* Серая линия от левого края до правого */
+.gray-line {
+    background-color: #1f1f1f; /* Серая линия */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 20;
+}
+
+
+/* Второй прямоугольник с кнопками */
+.second-rectangle {
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+/* Логотип слева */
+.logo-left {
+    width: 70px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Контейнер для кнопок навигации */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: auto;
+    flex-grow: 1;
+    margin-left: 270px;
+    margin-right: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #1f1f1f;
+    transform: scale(1.05);
+}
+
+/* Блок для поиска и иконок справа */
+.search-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стиль для поля поиска */
+.search-input {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+}
+
+/* Иконки */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+
+.icon-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Стиль для выпадающего меню помощи */
+.help-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 180px; /* Сдвигаем окно левее */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    z-index: 15;
+}
+
+/* Стили внутри окна помощи */
+.help-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-dropdown ul li {
+    padding: 10px;
+    color: #888;  /* Цвет текста серый */
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;  /* Размер шрифта */
+    font-weight: normal;  /* Убираем жирность */
+    transition: color 0.1s ease; /* Плавное изменение цвета */
+}
+
+/* При наведении цвет становится белым */
+.help-dropdown ul li:hover {
+    background-color: #1a1a1a;  /* Этот цвет теперь будет совпадать с фоном окна */
+    color: #f0f0f0;  /* Белый цвет текста при наведении */
+    transform: none; /* Убираем увеличение при наведении */
+}
+
+/* Показываем окно при наведении на кнопку */
+#helpBtn:hover + .help-dropdown {
+    display: block;
+}
+
+/* Скрываем окно, когда курсор уходит с окна */
+.help-dropdown:hover {
+    display: block;
+}
+
+/* Стиль для кнопки "Войти" */
+#loginButton {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+#loginButton:hover {
+    background-color: #1f1f1f;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Окно регистрации (по умолчанию скрыто) */
+.register-window {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+/* Модальное окно должно быть поверх всех элементов */
+#registerWindow.show {
+    display: block;
+}
+
+/* Для фона при открытом окне регистрации */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный */
+    z-index: 999; /* Появляется за окном регистрации */
+}
+
+/* Подключение шрифта */
+@font-face {
+    font-family: 'ColumbiaFont';
+    src: url('/static/fonts/Columbia.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Контейнер для видео */
+.video-container {
+    width: 100%; /* Ширина на весь экран */
+    height: calc(100vw * 9 / 21); /* Высота с учетом соотношения 21:9 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Обрезать лишнее видео, если оно выходит за пределы */
+    background-color: #1a1a1a; /* Фон для контраста */
+    margin-top: -20px;
+    padding: 20px 0;
+    position: relative; /* Для позиционирования текста */
+}
+
+/* Видео */
+.video-container video {
+    width: 100%; /* Видео адаптируется по ширине контейнера */
+    height: 100%; /* Видео адаптируется по высоте контейнера */
+    object-fit: cover; /* Сохраняет пропорции видео и обрезает лишнее */
+    border: none; /* Убираем рамки вокруг видео */
+    object-position: center; /* Обрезка по центру */
+}
+
+/* Текст поверх видео */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-family: 'ColumbiaFont', Arial, sans-serif;
+    font-size: 590px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    filter: drop-shadow(5px 0 10px rgba(0, 0, 0, 0.7)) /* Свечение вправо */
+            drop-shadow(-5px 0 10px rgba(0, 0, 0, 0.7)) /* Свечение влево */
+            drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7)) /* Свечение вниз */
+            drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.7)); /* Свечение вверх */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Шрифт mr_Roadkill в репозиторий не лёг: без него браузеры и так шли на sans-serif */
+/* Контейнер для приветствия */
+.welcome-container {
+    text-align: center;
+    margin-top: 20px; /* Отступ от видео */
+    color: #fff;
+    font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.welcome-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.welcome-subtext {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif; /* Новый шрифт */
+    color: #ddd;
+}
+
+
+
+
+
+
+.card {
+  width: 410px;
+  height: 254px;
+  border-radius: 4px;
+  background: #1a1a1a;
+  display: flex;
+  gap: 5px;
+  padding: .4em;
+  margin-left: 640px;
+  margin-top: 70px;
+}
+
+.card p {
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .5s;
+  background: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.card p:hover {
+  flex: 4;
+  font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.card p span {
+  min-width: 14em;
+  padding: .5em;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: all .5s;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  letter-spacing: .1em;
+  font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.card p:hover span {
+  transform: rotate(0);
+}
+
+
+
+
+.svg-wrapper {
+  position: relative;
+  width: 190px;
+  height: 60px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 760px;
+  margin-top: 90px;
+}
+
+.shape {
+  stroke-dasharray: 100 300;
+  stroke-dashoffset: -297;
+  fill: transparent;
+  stroke: rgb(220, 20, 60);
+  stroke-width: 5px;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+.text {
+  font-size: 22px;
+  top: -52px;
+  position: relative;
+  font-weight: 600;
+  color: white;
+  font-family: Arial, sans-serif; /* Новый шрифт */
+}
+
+.svg-wrapper:hover .shape {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}
+
+.svg-wrapper:hover {
+  background-color: rgba(220, 20, 60, 0.2);
+  transition: 1s;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+  margin-top: 70px; /* Добавление отступа сверху */
+}
+
+/* Стили для серой линии с кнопками "Помощь", "Войти", "Язык" */
+.gray-line {
+    background-color: #1f1f1f; /* Серая линия */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;  /* Фиксированное позиционирование */
+    top: 0;
+    z-index: 30; /* Увеличенный z-index, чтобы он был поверх второго */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Стили для второго прямоугольника (второй бар с кнопками) */
+.second-rectangle {
+    position: fixed;
+    top: 30px;  /* Отступ сверху */
+    width: 100%;
+    height: 50px;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 20; /* Меньший z-index */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Когда элементы должны скрыться */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0; /* Скрываем элемент, уменьшая его высоту */
+}
+
+/* Стили для выпадающего меню помощи */
+.help-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 180px; /* Сдвигаем окно левее */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.5);
+    z-index: 40; /* Устанавливаем z-index выше, чтобы меню было сверху */
+}
+
+/* Показываем окно при наведении на кнопку */
+#helpBtn:hover + .help-dropdown {
+    display: block;
+}
+
+/* Стили для списка в выпадающем меню */
+.help-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-dropdown ul li {
+    padding: 10px;
+    color: #888; /* Цвет текста серый */
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px; /* Размер шрифта */
+    font-weight: normal;
+    transition: color 0.1s ease; /* Плавное изменение цвета */
+}
+
+/* При наведении цвет становится белым */
+.help-dropdown ul li:hover {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}

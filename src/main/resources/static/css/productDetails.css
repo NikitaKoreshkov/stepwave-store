@@ -1,0 +1,863 @@
+/* Общий стиль для страницы */
+html, body {
+    background-color: #1a1a1a;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Серая линия с кнопками */
+.gray-line {
+    background-color: #1f1f1f !important; /* Серая линия */
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 30;
+}
+
+/* Кнопки в верхней линии */
+.btn-top {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-top:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Второй прямоугольник с логотипом и навигацией */
+.second-rectangle {
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 30px;
+    z-index: 20;
+}
+
+/* Логотип */
+.logo-left {
+    width: 70px;
+    height: auto;
+}
+
+/* Кнопки навигации */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 270px;
+    margin-right: 40px;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #888;
+    transform: scale(1.05);
+}
+
+/* Поле поиска и иконки справа */
+.search-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-input {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+/* Стиль для шапки */
+header {
+    background-color: #1a1a1a;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #888; /* Цвет при наведении */
+}
+
+
+
+
+/* Контейнер для основного контента */
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Контейнер для подробностей продукта */
+.product-details {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 20px;
+    background-color: #2a2a2a;
+    padding: 40px;
+    border-radius: 8px;
+    height: 600px;
+}
+
+/* Контейнер для главного изображения */
+.main-image-container {
+    position: relative;
+    width: 500px;  /* Фиксированная ширина */
+    height: 600px;  /* Фиксированная высота */
+    left: 130px;
+    overflow: hidden;  /* Чтобы картинка не выходила за пределы контейнера */
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Главная картинка */
+.main-product-image {
+    width: 100%;  /* Заполняет контейнер по ширине */
+    height: 100%;  /* Заполняет контейнер по высоте */
+    object-fit: cover;  /* Сохраняет пропорции, обрезая лишнее */
+}
+
+/* Основное изображение */
+.main-product-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: crosshair;
+    transition: filter 0.2s ease; /* Анимация размытия */
+}
+/* Контейнер для миниатюр изображений */
+.image-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: -260px;
+    left: 717px;
+    z-index: 10;
+}
+
+/* Кнопки с изображениями */
+.thumbnail-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 20; /* Обеспечиваем, чтобы кнопки находились выше изображений */
+}
+
+.product-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* При наведении на миниатюры */
+.product-thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Стиль для информации о продукте */
+.product-info {
+    position: relative;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100; /* Обеспечиваем, что модальное окно будет поверх всех элементов */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Более темный фон */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Центрирование по вертикали и горизонтали */
+    padding: 40px; /* Увеличенный отступ для контента */
+    border-radius: 15px; /* Скругленные углы */
+    width: 60%; /* Увеличенная ширина */
+    max-width: 600px; /* Ограничение максимальной ширины */
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Тень для глубины */
+    z-index: 101; /* Контент модального окна поверх фона */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #1479EA;
+    text-decoration: none;
+}
+
+/* Стили для текста в модальном окне */
+#compositionText {
+    font-size: 40px; /* Увеличенный размер шрифта */
+    color: #333;
+    line-height: 1.6; /* Добавляем пространство между строками */
+    margin-top: 15px; /* Пространство сверху */
+}
+
+.modal-content p {
+    margin: 40px 0; /* Пространство между элементами параграфа */
+    font-size: 18px;
+}
+
+/* Дополнительные стили для центрирования */
+body {
+    overflow: hidden; /* Запрещаем прокрутку страницы при открытом модальном окне */
+}
+
+.product-info h1 {
+    position: absolute;
+    top: -25px;
+    left: 169px;
+    font-size: 28px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.product-info .description {
+    font-size: 14px;
+    color: #819CAD;
+    line-height: 1.5;
+    max-width: 90%;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-top: 40px;
+    margin-left: 168px; /* Сдвиг текста в бок */
+}
+
+.product-info .price {
+    font-size: 18px;
+    rgba(255, 255, 255, 0.85)
+    font-weight: bold;
+    white-space: nowrap;
+    position: absolute;
+    top: 80px;
+    left: 170px;
+}
+
+
+
+
+
+
+/* Общий стиль для кнопки */
+.add-to-cart-button {
+  width: 16.3em;
+  position: absolute;
+  height: 3.5em;
+  border: 3px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  top: 390px;
+  left: 987px;
+}
+
+/* Стиль для переднего и заднего фона при наведении */
+.add-to-cart-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.add-to-cart-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+}
+
+/* Эффекты анимации для фонов при наведении */
+.add-to-cart-button:hover::before,
+.add-to-cart-button:hover::after {
+  transform: scale(0);
+}
+
+/* Эффект при наведении на кнопку */
+.add-to-cart-button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+/* Настройки для текста при наведении */
+.add-to-cart-button .hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: #37FF8B; /* Цвет анимации */
+  width: 0%; /* Начальная ширина */
+  inset: 0;
+  border-right: 6px solid #37FF8B; /* Цвет анимации */
+  overflow: hidden;
+  transition: 0.5s ease-out;
+  -webkit-text-stroke: 1px #37FF8B;
+}
+
+/* Завершающая анимация при наведении */
+.add-to-cart-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px #37FF8B);
+}
+
+/* Скрытие основного текста по умолчанию */
+.add-to-cart-button span {
+  visibility: hidden; /* Скрывает текст по умолчанию */
+  font-size: 1.5em; /* Устанавливает размер текста */
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Появление текста при наведении */
+.add-to-cart-button:hover span {
+  visibility: visible;
+}
+
+/* Дублированная кнопка с другим текстом */
+.buy-now-button {
+  width: 16.3em;
+  position: absolute;
+  height: 3.5em;
+  border: 3px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  top: 335px;
+  left: 987px;
+}
+
+/* Стиль для переднего и заднего фона при наведении на кнопку "Купить сейчас" */
+.buy-now-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.buy-now-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+}
+
+/* Эффекты анимации для фонов при наведении на кнопку "Купить сейчас" */
+.buy-now-button:hover::before,
+.buy-now-button:hover::after {
+  transform: scale(0);
+}
+
+/* Эффект при наведении на кнопку "Купить сейчас" */
+.buy-now-button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+/* Настройки для текста при наведении на кнопку "Купить сейчас" */
+.buy-now-button .hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: #37FF8B; /* Цвет анимации */
+  width: 0%; /* Начальная ширина */
+  inset: 0;
+  border-right: 6px solid #37FF8B; /* Цвет анимации */
+  overflow: hidden;
+  transition: 0.5s ease-out;
+  -webkit-text-stroke: 1px #37FF8B;
+}
+
+/* Завершающая анимация при наведении на кнопку "Купить сейчас" */
+.buy-now-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px #37FF8B);
+}
+
+/* Скрытие основного текста по умолчанию на кнопке "Купить сейчас" */
+.buy-now-button span {
+  visibility: hidden; /* Скрывает текст по умолчанию */
+  font-size: 1.5em; /* Устанавливает размер текста */
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Появление текста при наведении на кнопку "Купить сейчас" */
+.buy-now-button:hover span {
+  visibility: visible;
+}
+
+
+/* Дублированная кнопка с другим текстом */
+.composition-button {
+  width: 16.3em;
+  position: absolute;
+  height: 3.5em;
+  border: 3px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  top: 445px;
+  left: 987px;
+}
+
+/* Стиль для переднего и заднего фона при наведении */
+.composition-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.composition-button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #2a2a2a;
+  transition: 0.5s;
+}
+
+/* Эффекты анимации для фонов при наведении */
+.composition-button:hover::before,
+.composition-button:hover::after {
+  transform: scale(0);
+}
+
+.composition-button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+/* Настройки для текста при наведении */
+.composition-button .hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: #37FF8B; /* Цвет анимации */
+  width: 0%; /* Начальная ширина */
+  inset: 0;
+  border-right: 6px solid #37FF8B; /* Цвет анимации */
+  overflow: hidden;
+  transition: 0.5s ease-out;
+  -webkit-text-stroke: 1px #37FF8B;
+}
+
+/* Завершающая анимация при наведении */
+.composition-button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px #37FF8B);
+}
+
+/* Скрытие основного текста по умолчанию */
+.composition-button span {
+  visibility: hidden; /* Скрывает текст по умолчанию */
+  font-size: 1.5em; /* Устанавливает размер текста */
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* Появление текста при наведении */
+.composition-button:hover span {
+  visibility: visible;
+}
+
+
+/* Контейнер для кнопок размеров */
+.size-selection {
+  position: absolute;
+  flex-direction: column; /* Размещаем кнопки в два ряда */
+  gap: 20px;  /* Расстояние между рядами */
+  align-items: center;  /* Центрируем кнопки по горизонтали */
+  margin-top: 40px;  /* Отступ сверху */
+  perspective: 1500px;  /* Добавляем перспективу для 3D */
+  transform: translateY(-280px);
+}
+
+/* Разделение на два ряда */
+.row {
+  display: flex;
+  gap: 1px;  /* Расстояние между кнопками */
+  transform: translateX(980px);
+}
+
+/* Стиль для кнопок с размерами */
+.size-button {
+  width: 80px;  /* Ширина кнопки */
+  height: 40px;  /* Высота кнопки */
+  background-color: #333;  /* Цвет фона */
+  color: white;  /* Цвет текста */
+  font-size: 18px;  /* Размер шрифта */
+  font-weight: bold;  /* Жирный шрифт */
+  border: none;  /* Убираем рамку */
+  border-radius: 10px;  /* Скругляем углы */
+  cursor: pointer;  /* Курсор при наведении */
+  display: flex;
+  justify-content: center;  /* Центрируем текст по горизонтали */
+  align-items: center;  /* Центрируем текст по вертикали */
+  transition: transform 0.5s ease, background-color 0.3s ease, font-size 0.3s ease;
+  transform-style: preserve-3d;  /* Чтобы кнопка могла двигаться в 3D */
+  margin: 10px;
+}
+
+/* Эффект при наведении на кнопки */
+.size-button:hover {
+  transform: rotateX(90deg); /* Поворот на 90 градусов по оси X */
+  background-color: #555;  /* Меняем фон */
+  font-size: 20px;  /* Увеличиваем размер шрифта */
+  box-shadow: 0 0 20px rgba(20, 121, 234, 0.5); /* Добавляем светящуюся тень с цветом #1479EA */
+}
+
+/* Сложная анимация при первом появлении кнопок */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Анимация для появления кнопок */
+.size-button {
+  opacity: 0;
+  animation: pop-in 1s ease-out forwards;
+}
+
+/* Добавление анимации для каждого ряда с задержкой */
+.row:nth-child(1) .size-button:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.row:nth-child(1) .size-button:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.row:nth-child(1) .size-button:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.row:nth-child(1) .size-button:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.row:nth-child(2) .size-button:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.row:nth-child(2) .size-button:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.row:nth-child(2) .size-button:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.row:nth-child(2) .size-button:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+h2 {
+  position: relative; /* Чтобы использовать left/top */
+  top: 10px; /* Сдвиг по вертикали вниз на 50px */
+  left: 890px; /* Сдвиг по бокам вправо на 100px */
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+/* Заголовок над миниатюрами */
+.color-title {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.available {
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0px;  /* Отступ снизу */
+    transform: translateX(517%) translateY(-390px);
+}
+
+
+
+
+
+/* Стиль для модального окна */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  z-index: 1; /* Окно поверх всего */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+}
+
+/* Стиль для содержимого модального окна */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Ширина окна */
+  text-align: center; /* Центрирование текста */
+  position: relative; /* Для позиционирования кнопки закрытия */
+}
+
+/* Стиль для кнопки закрытия (×) */
+.close-button {
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #1479EA;
+  text-decoration: none;
+}
+
+/* Стили для текста в модальном окне */
+#compositionText {
+  font-size: 18px;
+  color: #333;
+  margin-top: -20px;
+}
+
+
+
+
+/* Для основного изображения */
+.main-product-image {
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Добавляем плавный переход */
+    position: relative;
+}
+
+/* Когда происходит смена изображения */
+.main-product-image.fade-out {
+    opacity: 0; /* Скрытие */
+    transform: scale(0.95); /* Легкое уменьшение */
+}
+
+.main-product-image.fade-in {
+    opacity: 1; /* Появление */
+    transform: scale(1); /* Возвращение к исходному размеру */
+}
+
+
+
+
+
+
+/* Лупа */
+#zoomLens {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(0, 204, 255, 0.7);
+    display: none;
+    z-index: 10;
+    animation: lensAppear 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+
+/* Взрыв света без вращения */
+@keyframes lensAppear {
+    0% {
+        transform: scale(0.2); /* Убрали rotate */
+        opacity: 0;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: scale(1.5); /* Убрали rotate */
+        opacity: 1;
+        box-shadow: 0 0 100px rgba(255, 255, 255, 0.9), 0 0 200px rgba(0, 204, 255, 0.8);
+    }
+    100% {
+        transform: scale(1); /* Убрали rotate */
+        opacity: 1;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(0, 204, 255, 0.7);
+    }
+}
+
+
+/* Деформация изображения */
+@keyframes imageDistortion {
+    0%, 100% {
+        filter: none;
+    }
+    50% {
+        filter: blur(5px) brightness(1.2); /* Размытие и увеличение яркости */
+        transform: scale(1.05) rotate(2deg); /* Увеличение и легкое вращение */
+    }
+}
+
+/* Класс для запуска деформации */
+.image-distorted {
+    animation: imageDistortion 0.7s ease forwards; /* Длительность анимации */
+}
+
+
+
+.product-container {
+    position: relative; /* Родительский контейнер для абсолютного позиционирования */
+}
+
+.product-color-thumbnails {
+    position: absolute;
+    top: 200px;
+    bottom: 0; /* Позиционируем снизу */
+    left: 275px; /* Расстояние от левого края (можно настроить) */
+    z-index: 1000; /* Чтобы элементы не перекрывались другими */
+    display: flex;
+    flex-direction: column; /* Расположение миниатюр вертикально */
+    gap: 10px; /* Отступ между миниатюрами */
+}

@@ -1,0 +1,60 @@
+/* Добавим стили для чата */
+#chat-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#chat-window {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+#chat-output {
+    max-height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+#user-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#send-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #45a049;
+}
+
+.user-message {
+    background-color: #f1f1f1;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
