@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoe Details</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/shoeDetails.css">
+</head>
+<body>
+
+<!-- Серая линия растянутая на всю ширину -->
+<div class="gray-line">
+  <button class="btn-top" id="helpBtn">Помощь</button>
+  <span>|</span>
+  <button class="btn-top" id="loginButton" onclick="window.location.href='/signup'">Войти</button>
+  <span>|</span>
+  <button class="btn-top" id="language-btn">Русский</button>
+
+  <!-- Выпадающее окно с выбором языка -->
+  <div class="language-dropdown" id="language-dropdown">
+    <ul>
+      <li>Русский</li>
+      <li>Қазақша</li>
+      <li>English</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Выпадающее окно помощи -->
+<div class="help-dropdown" id="help-dropdown">
+  <ul>
+    <li>Связаться с нами</li>
+    <li>Руководство</li>
+    <li>Акции и скидки</li>
+    <li>Таблица размеров</li>
+    <li>Рекомендации по продукции</li>
+    <li>Отзывы</li>
+  </ul>
+</div>
+
+<!-- Второй прямоугольник с кнопками и иконками -->
+<div class="second-rectangle">
+  <a href="javascript:void(0);" class="logo-link" onclick="window.location.reload();">
+    <img src="/static/images/logo/Logo.png" alt="Logo" class="logo-left">
+  </a>
+
+  <div class="nav-links">
+    <a href="http://localhost:8082/products/filter?categoryId=1">
+      <button class="nav-btn">Новинки</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=2">
+      <button class="nav-btn">Мужское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=3">
+      <button class="nav-btn">Женское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=4">
+      <button class="nav-btn">Детское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=6">
+      <button class="nav-btn">Унисекс</button>
+    </a>
+  </div>
+
+  <div class="search-icons">
+    <form action="/products/search" method="get" onsubmit="return checkSearchInput()">
+      <input type="text" name="search" class="search-input" placeholder="Search..." required>
+    </form>
+  </div>
+
+  <div class="icons">
+    <button class="icon-btn"><img src="/static/images/icons2/Like.png" alt="Like"></button>
+    <button class="icon-btn"><img src="/static/images/icons2/Cart.png" alt="Cart"></button>
+  </div>
+</div>
+
+<h1>Shoe Details</h1>
+<div class="product-grid">
+  <div th:each="shoe : ${shoes}" class="product-card">
+    <img th:src="@{${shoe.imageUrl}}" alt="Shoe image" class="product-image" />
+    <div class="product-info">
+      <h3 th:text="${shoe.name}" class="product-name">Название продукта</h3>
+      <p th:text="${shoe.price} + ' USD'" class="product-price">Цена продукта</p>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/shoeDetails.js"></script>
+</body>
+</html>

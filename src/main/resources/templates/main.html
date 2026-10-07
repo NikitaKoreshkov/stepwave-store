@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Sneaker Shop</title>
+</head>
+<body>
+<!-- Серая линия растянутая на всю ширину -->
+<div class="gray-line">
+    <button class="btn-top" id="helpBtn">Помощь</button>
+    <span>|</span>
+    <button class="btn-top" id="loginButton" onclick="window.location.href='/signup'">Войти</button>
+    <span>|</span>
+    <button class="btn-top" id="language-btn">Русский</button>
+
+    <!-- Выпадающее окно с выбором языка -->
+    <div class="language-dropdown" id="language-dropdown">
+        <ul>
+            <li>Русский</li>
+            <li>Қазақша</li>
+            <li>English</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Выпадающее окно помощи -->
+<div class="help-dropdown" id="help-dropdown">
+    <ul>
+        <li>Связаться с нами</li>
+        <li>Руководство</li>
+        <li>Акции и скидки</li>
+        <li>Таблица размеров</li>
+        <li>Рекомендации по продукции</li>
+        <li>Отзывы</li>
+    </ul>
+</div>
+
+<!-- Второй прямоугольник с кнопками и иконками -->
+<div class="second-rectangle">
+    <a href="javascript:void(0);" class="logo-link" onclick="window.location.reload();">
+        <img src="/static/images/logo/Logo.png" alt="Logo" class="logo-left">
+    </a>
+
+    <div class="nav-links">
+        <a href="http://localhost:8082/products/filter?categoryId=1">
+            <button class="nav-btn">Новинки</button>
+        </a>
+        <a href="http://localhost:8082/products/filter?categoryId=2">
+            <button class="nav-btn">Мужское</button>
+        </a>
+        <a href="http://localhost:8082/products/filter?categoryId=3">
+            <button class="nav-btn">Женское</button>
+        </a>
+        <a href="http://localhost:8082/products/filter?categoryId=4">
+            <button class="nav-btn">Детское</button>
+        </a>
+        <a href="http://localhost:8082/products/filter?categoryId=6">
+            <button class="nav-btn">Унисекс</button>
+        </a>
+    </div>
+
+    <div class="search-icons">
+        <form action="/products/search" method="get" onsubmit="return checkSearchInput()">
+            <input type="text" name="search" class="search-input" placeholder="Search..." required>
+        </form>
+    </div>
+
+
+
+        <div class="icons">
+            <button class="icon-btn"><img src="/static/images/icons2/Like.png" alt="Like"></button>
+            <button class="icon-btn"><img src="/static/images/icons2/Cart.png" alt="Cart"></button>
+        </div>
+</div>
+
+<!-- Видеоблок с одним видео, теперь с ссылкой -->
+<a href="http://localhost:8082/products/" class="video-link">
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="/static/video/Site.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+</a>
+
+
+<div class="intro-text">
+    <h1>ТВОЯ ВОЛНА</h1>
+    <h2>НАЧИНАЕТСЯ ЗДЕСЬ</h2>
+    <h3>STEPWAVE</h3>
+</div>
+
+<div class="photo-grid">
+    <!-- Первая фотография с текстом -->
+    <a href="http://localhost:8082/shoe/3">
+        <div class="photo-item">
+            <img src="/static/images/photo/ad.jpeg" alt="Sneaker 1" id="photo1">
+        </div>
+    </a>
+
+    <!-- Вторая фотография с текстом -->
+    <div class="photo-item">
+        <img src="/static/images/photo/adi.jpg" alt="Sneaker 2" id="photo2">
+    </div>
+
+    <!-- Третья фотография с текстом -->
+    <a href="http://localhost:8082/products/byBrand?brandId=6">
+        <div class="photo-item">
+            <img src="/static/images/photo/nb.jpeg" alt="Sneaker 3" id="photo3">
+        </div>
+    </a>
+
+    <!-- Четвертая фотография с текстом -->
+    <div class="photo-item">
+        <img src="/static/images/photo/nk.jpeg" alt="Sneaker 4" id="photo4">
+    </div>
+</div>
+
+<div class="text-container">
+    <div class="text-item" id="text1">
+        <h2>Свобода в каждом движении</h2>
+        <p>Когда стиль говорит громче слов.</p>
+    </div>
+    <div class="text-item" id="text2">
+        <h2>Стиль начинается с порога</h2>
+        <p>Входи, но только с должным уважением.</p>
+    </div>
+    <div class="text-item" id="text3">
+        <h2>Баланс ритма</h2>
+        <p>Кофе, клавиши и New Balance – формула продуктивности.</p>
+    </div>
+    <div class="text-item" id="text4">
+        <h2>Подрыв шаблонов дизайна</h2>
+        <p><strong>Nike Shox TL</strong></p>
+    </div>
+</div>
+
+<a href="http://localhost:8082/products/byBrand?brandId=6" class="full-image-link">
+    <div class="full-image-container">
+        <div class="text latest-drops">
+            <h1>БЕГИ С ДУШОЙ</h1>
+        </div>
+        <div class="text feature-text">
+            <p>Стань частью движения с</p>
+        </div>
+        <div class="text additional-text">
+            <p>New Balance</p>
+        </div>
+    </div>
+</a>
+
+
+<div class="shoes-list">
+    <div class="shoes-list-wrapper">
+        <a href="http://localhost:8082/shoe/2" class="shoe-item">
+            <img src="/static/images/kicks/1.png" alt="Cortez">
+        </a>
+        <a href="http://localhost:8082/shoe/1" class="shoe-item">
+            <img src="/static/images/kicks/2.png" alt="Air Max">
+        </a>
+        <a href="http://localhost:8082/shoe/7" class="shoe-item">
+            <img src="/static/images/kicks/3.png" alt="Blazer">
+        </a>
+        <a href="http://localhost:8082/shoe/6" class="shoe-item">
+            <img src="/static/images/kicks/4.png" alt="Air Jordan 1">
+        </a>
+        <a href="http://localhost:8082/shoe/5" class="shoe-item">
+            <img src="/static/images/kicks/5.png" alt="Dunk">
+        </a>
+        <a href="http://localhost:8082/shoe/4" class="shoe-item">
+            <img src="/static/images/kicks/6.png" alt="Air Force 1">
+        </a>
+        <a href="http://localhost:8082/shoe/3" class="shoe-item">
+            <img src="/static/images/kicks/7.png" alt="Vomero">
+        </a>
+    </div>
+</div>
+
+<div class="classic-text custom-position">
+    NIKE
+</div>
+<div class="proven-text custom-position">
+    ПРОВЕРЕННЫЙ ВРЕМЕНЕМ
+</div>
+
+<div class="brand-logos">
+    <a href="http://localhost:8082/products/byBrand?brandId=2" target="_self">
+        <img src="/static/logobr/adi.png" alt="Adidas" class="brand-logo">
+    </a>
+    <a href="http://localhost:8082/products/byBrand?brandId=4" target="_self">
+        <img src="/static/logobr/con.png" alt="Converse" class="brand-logo">
+    </a>
+    <a href="http://localhost:8082/products/byBrand?brandId=5" target="_self">
+        <img src="/static/logobr/jor.png" alt="Jordan" class="brand-logo">
+    </a>
+    <a href="http://localhost:8082/products/byBrand?brandId=1" target="_self">
+        <img src="/static/logobr/nike.png" alt="Nike" class="brand-logo">
+    </a>
+    <a href="http://localhost:8082/products/byBrand?brandId=3" target="_self">
+        <img src="/static/logobr/puma.png" alt="Puma" class="brand-logo">
+    </a>
+</div>
+
+<div class="brand-container">
+    <!-- Ваши логотипы -->
+</div>
+
+<div class="welcome-text">
+    <p>Устал от однообразия и хочешь выделиться? Добро пожаловать в StepWave! 🌊</p>
+    <p>
+        Мы – не просто магазин кроссовок. StepWave – это пространство свободы, где стиль встречается с инновацией,
+        а вдохновение становится твоей привычкой.
+    </p>
+    <p>
+        Каждый день здесь – это ритм твоей уникальности. Тусовка для единомышленников, музыка, которая задает
+        настроение, и место, где идеи превращаются в реальность.
+    </p>
+    <p>Какой твой путь? Мы верим, что он уникален.</p>
+    <p>Создавай свои правила, а StepWave поддержит тебя на каждом шагу. 🔥</p>
+</div>
+
+<div class="footer-links">
+    <div class="footer-item">StepWave</div>
+    <div class="footer-item">Помощь</div>
+    <div class="footer-item">Доставка и Возврат</div>
+    <div class="footer-item">Юридический раздел</div>
+</div>
+
+<div class="about-button-container">
+    <button class="about-btn" id="about-btn">О нас</button>
+</div>
+
+<!-- Модальное окно -->
+<div id="about-modal" class="modal">
+    <div class="modal-content">
+        <img src="/static/images/logo/Logo.png" alt="Logo" class="modal-logo" />
+        <span class="close-btn">&times;</span>
+        <h1>Добро пожаловать в StepWave – ваш надежный партнер в мире кроссовок!</h1>
+        <p>StepWave – это онлайн-магазин, где стиль встречается с комфортом. Мы специализируемся на продаже качественной и оригинальной обуви от ведущих мировых брендов. Наша цель – не просто предлагать обувь, а помогать вам выражать свою индивидуальность и уверенно шагать к новым вершинам.</p>
+        <h2>Почему выбирают StepWave?</h2>
+        <ul>
+            <li><strong>Широкий ассортимент:</strong> У нас вы найдете кроссовки на любой вкус – от классики до последних коллекций.</li>
+            <li><strong>Гарантия качества:</strong> Мы работаем только с проверенными брендами, чтобы вы могли быть уверены в своей покупке.</li>
+            <li><strong>Доступные цены:</strong> Мы предлагаем конкурентоспособные цены, чтобы стильная обувь стала доступной для каждого.</li>
+            <li><strong>Отличный сервис:</strong> Быстрая доставка, удобные способы оплаты и всегда готовая помочь команда поддержки.</li>
+        </ul>
+        <p>StepWave – это не просто магазин, это сообщество людей, ценящих моду, комфорт и свободу самовыражения. Присоединяйтесь к нам и создавайте свой стиль вместе с StepWave!</p>
+        <p><strong>Ваши шаги – наша волна.</strong></p>
+        <p>#StepWave</p>
+    </div>
+</div>
+
+
+<!-- Кнопка "Связаться с нами" -->
+<button class="contact-btn" id="contact-btn">Связаться с нами</button>
+
+<!-- Модальное окно -->
+<div class="modal" id="contact-modal">
+    <div class="modal-content">
+        <h1>Мы всегда готовы помочь вам!</h1>
+        <p>Если у вас есть вопросы о наших товарах, заказах или вы просто хотите поделиться своим мнением, свяжитесь с нами удобным для вас способом:</p>
+        <ul>
+            <li>📞 Телефон: +7 (771) 455-00-44</li>
+            <li>📧 Email: info@stepwave.kz</li>
+            <li>📍 Адрес офиса: ул. Абая, 24, Алматы, Казахстан</li>
+        </ul>
+        <p>Наши операторы работают ежедневно с 9:00 до 20:00. Мы ценим ваше время и постараемся ответить на ваш запрос как можно быстрее.</p>
+        <p>StepWave – на связи, чтобы сделать ваш опыт покупки идеальным!</p>
+        <span class="close-btn" id="contact-close-btn">&times;</span>
+    </div>
+</div>
+
+<!-- Кнопка "Доставка" -->
+<button class="delivery-btn" id="delivery-btn">Доставка</button>
+
+<!-- Модальное окно для доставки -->
+<div class="modal" id="delivery-modal">
+    <div class="modal-content">
+        <h1>Доставка</h1>
+        <p>Мы понимаем, как важно получить свой заказ быстро и без лишних хлопот. Поэтому в StepWave мы предлагаем удобные условия доставки:</p>
+        <ul>
+            <li>📦 Курьерская доставка: по Алматы и другим регионам Казахстана.</li>
+            <li>⏳ Сроки доставки: 1-3 рабочих дня по городу и 3-7 рабочих дней по регионам.</li>
+            <li>💸 Стоимость доставки: Бесплатно при заказе от 30 000 ₸. Для заказов до 30 000 ₸ – стоимость доставки рассчитывается при оформлении.</li>
+        </ul>
+        <p>StepWave – ваш комфорт в приоритете!</p>
+        <span class="close-btn" id="delivery-close-btn">&times;</span>
+    </div>
+</div>
+
+<!-- Кнопка "Возврат и обмен" -->
+<button class="return-btn" id="return-btn">Возврат и обмен</button>
+
+<!-- Модальное окно для возврата и обмена -->
+<div class="modal" id="return-modal">
+    <div class="modal-content">
+        <h1>Возврат и обмен</h1>
+        <p>Мы заботимся о вашем комфорте, поэтому сделали процесс возврата и обмена максимально простым:</p>
+        <ul>
+            <li>⏳ Срок возврата: Вы можете вернуть или обменять товар в течение 14 дней с момента получения заказа, если он не был в использовании и сохранил товарный вид.</li>
+            <li>📞 Процесс возврата: Свяжитесь с нами по телефону +7 (771) 455-00-44 или по email info@stepwave.kz, и мы поможем вам оформить возврат.</li>
+            <li>💸 Возврат средств: Деньги будут возвращены на ваш счет в течение 3-5 рабочих дней после подтверждения возврата.</li>
+        </ul>
+        <p>Если товар вам не подошел или есть вопросы – мы всегда готовы найти решение!</p>
+        <p>StepWave – ваш комфорт в приоритете.</p>
+        <span class="close-btn" id="return-close-btn">&times;</span>
+    </div>
+</div>
+
+
+<!-- Кнопка "Политика конфиденциальности" -->
+<button class="privacy-btn" id="privacy-btn">Политика конфиденциальности</button>
+
+<!-- Модальное окно для политики конфиденциальности -->
+<div class="modal" id="privacy-modal">
+    <div class="modal-content">
+        <h1>Политика конфиденциальности и использования файлов cookie StepWave</h1>
+        <p>Настоящая политика конфиденциальности описывает, какие персональные данные собираются, обрабатываются и защищаются, когда вы взаимодействуете с StepWave через наш веб-сайт, цифровые платформы, мобильные приложения или другие сервисы, именуемые далее «Платформа StepWave» или «Платформа». В документе также объясняется, как используются ваши персональные данные, какие права у вас есть в отношении ваших данных, и как вы можете связаться с нами для получения дополнительной информации.</p>
+
+        <h2>КТО отвечает за обработку ваших данных?</h2>
+        <p>Ответственной за обработку ваших персональных данных является юридическая организация StepWave, с которой вы взаимодействуете через нашу Платформу. В этой политике термин «StepWave», «мы» или «наш» относится к соответствующему юридическому лицу. Для получения более подробной информации вы можете связаться с нами, используя контактные данные, указанные в конце документа.</p>
+
+        <h2>КАКИЕ данные мы собираем и КОГДА?</h2>
+        <p>Мы собираем персональные данные, которые необходимы для предоставления вам запрашиваемых товаров или услуг. Например, мы запрашиваем данные при следующих действиях:</p>
+        <ul>
+            <li>оформлении заказа;</li>
+            <li>регистрации аккаунта;</li>
+            <li>подписке на рассылки;</li>
+            <li>участии в акциях, мероприятиях или конкурсах.</li>
+        </ul>
+
+        <h3>Персональные данные могут включать:</h3>
+        <ul>
+            <li>Контактные данные: имя, номер телефона, адрес электронной почты, адрес доставки и выставления счета.</li>
+            <li>Данные аккаунта: имя пользователя, пароль и уникальный идентификатор.</li>
+            <li>Личные данные: дата рождения, история покупок.</li>
+            <li>Платежная информация: данные банковской карты.</li>
+            <li>Маркетинговые предпочтения, включая использование файлов cookie.</li>
+        </ul>
+
+        <h3>Мы также собираем данные автоматически при использовании нашей Платформы, включая:</h3>
+        <ul>
+            <li>IP-адрес и информацию о браузере.</li>
+            <li>Данные об активности: просмотренные товары, добавленные в корзину или совершённые покупки.</li>
+            <li>Файлы cookie и другие идентификаторы устройств.</li>
+        </ul>
+
+        <h2>КАК мы используем ваши данные?</h2>
+        <p>Мы используем ваши персональные данные для следующих целей:</p>
+        <ul>
+            <li>Предоставление услуг и выполнение заказов.</li>
+            <li>Маркетинговая коммуникация.</li>
+            <li>Персонализация услуг.</li>
+            <li>Улучшение наших услуг.</li>
+            <li>Обеспечение безопасности.</li>
+        </ul>
+
+        <h2>С КЕМ мы делимся вашими данными?</h2>
+        <p>StepWave может делиться персональными данными с:</p>
+        <ul>
+            <li>Сервисными провайдерами: для обработки платежей, доставки и предоставления технической поддержки.</li>
+            <li>Юридическими органами: если это требуется по закону или для защиты наших прав.</li>
+        </ul>
+        <p>Мы никогда не передаем ваши данные третьим лицам для маркетинговых целей без вашего согласия.</p>
+
+        <h2>КАК мы защищаем ваши данные?</h2>
+        <p>Мы используем современные технологии шифрования и другие организационные меры для защиты ваших персональных данных. Доступ к данным имеют только уполномоченные сотрудники и подрядчики StepWave.</p>
+
+        <h2>ВАШИ права</h2>
+        <p>В соответствии с законодательством вы имеете право:</p>
+        <ul>
+            <li>Запросить доступ к своим данным.</li>
+            <li>Исправить неточные или устаревшие данные.</li>
+            <li>Удалить свои данные, если это не противоречит законодательству.</li>
+            <li>Отозвать согласие на обработку данных.</li>
+        </ul>
+
+        <h2>КОНТАКТЫ</h2>
+        <p>Если у вас есть вопросы по поводу обработки персональных данных или вы хотите воспользоваться своими правами, свяжитесь с нами:</p>
+        <ul>
+            <li>📞 Телефон: +7 (771) 455-00-44</li>
+            <li>📧 Email: privacy@stepwave.kz</li>
+        </ul>
+
+        <p>StepWave уважает вашу конфиденциальность и стремится обеспечить безопасность ваших данных.</p>
+
+        <span class="close-btn" id="privacy-close-btn">&times;</span>
+    </div>
+</div>
+
+<div class="footer">
+    <p>© 2024 StepWave, Inc. All Rights Reserved</p>
+</div>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подтверждение кода</title>
+  <link rel="stylesheet" href="/static/css/verify-code.css">
+</head>
+<body>
+<div class="verifycode">
+  <h2>Подтверждение кода</h2>
+  <p>Введите код, который мы отправили вам на электронную почту.</p>
+  <form id="verifyCodeForm">
+    <input type="text" id="code" name="code" placeholder="Введите код" required>
+    <button type="submit">Подтвердить</button>
+  </form>
+
+  <div id="loadingIndicator" style="display: none;">
+    <p>Проверяем код...</p>
+    <div class="spinner"></div>
+  </div>
+
+</div>
+<script src="/static/js/verify-code.js"></script>
+</body>
+</html>

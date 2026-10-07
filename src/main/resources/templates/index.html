@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepWave</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<div class="background">
+    <img src="/static/images/air.png" class="image-left" id="airImage" alt="Air Force">
+    <img src="/static/images/jordan.png" class="image-right" id="jordanImage" alt="Jordan">
+
+    <a href="/" style="text-decoration: none; color: #fff;"><h1 id="store-name">StepWave</h1></a>
+
+    <div class="container">
+        <div class="language-select-wrapper">
+            <select id="language-select">
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+                <option value="kk">KZ</option>
+            </select>
+        </div>
+
+        <p id="welcome-message" class="welcome-bold"></p>
+        <p class="welcome-subtext"></p>
+
+        <button class="btn" id="loginBtn">Войти в систему</button>
+        <button class="btn" id="registerBtn">Создать аккаунт</button>
+    </div>
+
+    <div id="login-form" class="container" style="display: none;">
+        <h2 id="login-header">Вход</h2>
+        <form id="login-form-data">
+            <input type="text" id="username" name="username" placeholder="Введите вашу почту" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                <img class="eye-icon" id="toggle-password-login" src="/static/images/icons/close.png" alt="Показать/скрыть пароль" />
+            </div>
+            <div id="login-password-error" style="color: red; display: none;">Пароль должен содержать более 8 символов и хотя бы одну заглавную букву.</div>
+            <a href="#" class="forgot-password" id="forgot-password-link">Забыли пароль?</a>
+            <button type="submit" class="btn" id="login-submit">Войти</button>
+            <button type="button" class="btn-back" id="back-to-main">Назад</button>
+        </form>
+    </div>
+
+    <!-- Модальное окно для ошибки -->
+    <div id="error-modal" class="error-modal" style="display: none;">
+        <div class="error-content">
+            <p id="modal-error-message">Данный пользователь уже существует.</p>
+            <button id="close-error-modal" class="btn">Закрыть</button>
+        </div>
+    </div>
+
+    <div id="register-form" class="container" style="display: none;">
+        <h2 id="register-header">Регистрация</h2>
+        <form id="register-form-data">
+            <input type="text" id="new-username" name="username" placeholder="Введите вашу почту" required>
+            <div class="password-container">
+                <input type="password" id="new-password" name="password" placeholder="Введите пароль" required>
+                <img class="eye-icon" id="toggle-password-register" src="/static/images/icons/close.png" />
+            </div>
+            <div id="password-error" style="color: red; display: none;">Пароль должен содержать более 8 символов и хотя бы одну заглавную букву.</div>
+
+            <button type="submit" class="btn" id="register-submit">Создать аккаунт</button>
+            <button type="button" class="btn-back" id="back-to-main-register">Назад</button>
+        </form>
+
+        <div id="error-message" style="display: none; margin-top: 10px; color: red;"></div>
+        <div id="success-message" style="display: none; margin-top: 10px; color: green;"></div>
+    </div>
+
+    <!-- Форма сброса пароля -->
+    <div id="reset-password-form" class="container" style="display: none;">
+        <h2 id="resetPasswordHeader">Сброс пароля</h2>
+        <form action="/api/email/forgot-password" method="POST">
+            <input type="email" id="reset-email" name="email" placeholder="Введите вашу почту" required>
+            <button type="submit" id="send-reset-link" class="btn">Отправить ссылку для сброса пароля</button>
+        </form>
+        <button type="button" class="btn-back" id="back-to-login">Назад</button>
+    </div>
+
+    <div id="success-account-message" style="display: none;">
+        Ваш аккаунт успешно создан! Подождите, мы перенаправим вас на главную страницу...
+    </div>
+
+    <!-- Окно с сообщением об успешной отправке письма -->
+    <div id="password-reset-success" style="display: none;">
+        <h3>Ссылка для сброса пароля была отправлена на ваш email. Пожалуйста, проверьте почту.</h3>
+    </div>
+
+    <!-- Окно с сообщением об ошибке -->
+    <div id="reset-error-message" class="error-message">
+        Пользователь с таким email не найден.
+    </div>
+
+</div>
+
+<script src="/static/js/scripts.js"></script>
+</body>
+</html>

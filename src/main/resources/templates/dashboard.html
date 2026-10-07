@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <title>Sneaker Shop</title>
+  <link rel="icon" href="/static/images/favicon.png" type="image/png">
+</head>
+<body>
+<!-- Серая линия растянутая на всю ширину -->
+<div class="gray-line">
+  <button class="btn-top" id="helpBtn"></button>
+  <span></span>
+  <button class="btn-top" id="loginButton"></button>
+  <span></span>
+  <button class="btn-top" id="language-btn"></button>
+
+  <!-- Выпадающее окно с выбором языка -->
+
+</div>
+
+<!-- Второй прямоугольник с кнопками и иконками -->
+<div class="second-rectangle">
+  <a href="javascript:void(0);" class="logo-link" onclick="window.location.reload();">
+    <img src="/static/images/logo/Logo.png" alt="Logo" class="logo-left">
+  </a>
+
+  <div class="nav-links">
+    <a href="/products/filter?categoryId=1"><button class="nav-btn">Новинки</button></a>
+    <a href="/products/filter?categoryId=2"><button class="nav-btn">Мужское</button></a>
+    <a href="/products/filter?categoryId=3"><button class="nav-btn">Женское</button></a>
+    <a href="/products/filter?categoryId=4"><button class="nav-btn">Детское</button></a>
+    <a href="/products/filter?categoryId=6"><button class="nav-btn">Унисекс</button></a>
+  </div>
+
+  <div class="search-icons">
+    <form action="/products/search" method="get" onsubmit="return checkSearchInput()">
+      <input type="text" name="search" class="search-input" placeholder="Search..." required>
+    </form>
+  </div>
+
+  <div class="icons">
+    <button class="icon-btn"><img src="/static/images/icons2/Like.png" alt="Like"></button>
+    <button class="icon-btn"><img src="/static/images/icons2/Cart.png" alt="Cart"></button>
+  </div>
+</div>
+
+
+
+<!-- Видеоблок с одним видео -->
+<div class="video-container">
+  <video autoplay muted loop>
+    <source src="/static/video/Site.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
+  <!-- Текст на видео -->
+  <div class="overlay-text">STEPWAVE</div>
+</div>
+
+
+<div class="welcome-container">
+  <h1 class="welcome-title">Добро пожаловать в личный кабинет!</h1>
+  <p class="welcome-subtext">Ваше пространство для стильных решений.</p>
+  <p class="welcome-subtext">Отслеживайте заказы, добавляйте избранное и находите новые коллекции.</p>
+</div>
+
+<div class="card">
+  <p><span>КОРЗИНА</span></p>
+  <p><span>ПОКУПКИ</span></p>
+  <p><span>ВЫЙТИ</span></p>
+</div>
+
+
+<div class="svg-wrapper">
+  <svg height="60" width="190" xmlns="http://www.w3.org/2000/svg">
+    <rect class="shape" height="60" width="190"></rect>
+  </svg>
+  <div class="text">РАССЫЛКА</div>
+</div>
+
+
+<div class="footer">
+  <p>© 2024 StepWave, Inc. All Rights Reserved</p>
+</div>
+
+<!-- Подключение скриптов -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Связаться с нами</title>
+  <link rel="stylesheet" href="/static/css/contact.css"> <!-- Подключаем общий CSS файл -->
+</head>
+<body>
+
+<!-- Страница с контактной информацией -->
+<div class="contact-content">
+  <h2>Связаться с нами</h2>
+  <p>Если у вас возникли вопросы или предложения, не стесняйтесь обращаться к нам. Мы всегда рады помочь!</p>
+  <p>Для получения дополнительной информации или вопросов, пожалуйста, свяжитесь с нами через форму ниже или отправьте письмо на наш адрес электронной почты: <strong>support@example.com</strong>.</p>
+  <p><strong>Адрес:</strong> Улица Примерная, дом 123, Москва, Россия</p>
+  <p><strong>Телефон:</strong> +7 (123) 456-7890</p>
+  <p>Наши менеджеры работают с понедельника по пятницу с 9:00 до 18:00. Мы постараемся ответить на ваш запрос как можно скорее!</p>
+</div>
+
+<!-- Окно чат-бота -->
+<div id="chat-container">
+  <div id="chat-window">
+    <div id="chat-output"></div>
+    <input type="text" id="user-input" placeholder="Задайте вопрос...">
+    <button id="send-button">Отправить</button>
+  </div>
+</div>
+
+<script src="/static/js/contact.js"></script> <!-- Подключаем JS файл с логикой чат-бота -->
+
+</body>
+</html>

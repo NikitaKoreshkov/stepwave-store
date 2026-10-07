@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="/static/css/productDetails.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+
+<!-- Серая линия -->
+<div class="gray-line">
+  <button class="btn-top" id="helpBtn">Помощь</button>
+  <span>|</span>
+  <button class="btn-top" id="loginButton" onclick="window.location.href='/signup'">Войти</button>
+  <span>|</span>
+  <button class="btn-top" id="language-btn">Русский</button>
+
+  <!-- Выпадающее окно с выбором языка -->
+  <div class="language-dropdown" id="language-dropdown">
+    <ul>
+      <li>Русский</li>
+      <li>Қазақша</li>
+      <li>English</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Выпадающее окно помощи -->
+<div class="help-dropdown" id="help-dropdown">
+  <ul>
+    <li>Связаться с нами</li>
+    <li>Руководство</li>
+    <li>Акции и скидки</li>
+    <li>Таблица размеров</li>
+    <li>Рекомендации по продукции</li>
+    <li>Отзывы</li>
+  </ul>
+</div>
+
+<!-- Второй прямоугольник -->
+<div class="second-rectangle">
+  <a href="/" class="logo-link">
+    <img src="/static/images/logo/Logo.png" alt="Logo" class="logo-left">
+  </a>
+
+  <div class="nav-links">
+    <a href="http://localhost:8082/products/filter?categoryId=1">
+      <button class="nav-btn">Новинки</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=2">
+      <button class="nav-btn">Мужское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=3">
+      <button class="nav-btn">Женское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=4">
+      <button class="nav-btn">Детское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=6">
+      <button class="nav-btn">Унисекс</button>
+    </a>
+  </div>
+
+  <!-- Форма поиска -->
+  <div class="search-icons">
+    <form action="/products/search" method="get" onsubmit="return checkSearchInput()">
+      <input type="text" name="search" class="search-input" placeholder="Search..." required>
+    </form>
+  </div>
+
+  <div class="icons">
+    <button class="icon-btn"><img src="/static/images/icons2/Like.png" alt="Like"></button>
+    <button class="icon-btn"><img src="/static/images/icons2/Cart.png" alt="Cart"></button>
+  </div>
+</div>
+
+<!-- Навигация или шапка сайта -->
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Основной контент страницы -->
+<div class="product-container">
+  <div class="product-details">
+    <!-- Контейнер для изображений -->
+    <div class="product-images">
+
+      <!-- Контейнер для главного изображения -->
+      <div class="main-image-container">
+        <div class="image-zoom-container">
+          <img id="mainSneakerImage" th:src="@{${sneaker.imageUrl}}" alt="Main Sneaker Image" class="main-product-image">
+          <div id="zoomLens"></div>
+        </div>
+      </div>
+
+      <!-- Список дополнительных изображений -->
+      <div class="image-thumbnails">
+        <div th:each="image : ${images}">
+          <!-- Каждое изображение становится кнопкой с обработчиком клика -->
+          <button class="thumbnail-button" onclick="changeMainImage([[${image.url}]])">
+            <img th:src="@{${image.url}}" alt="Sneaker Image" class="product-thumbnail">
+          </button>
+        </div>
+      </div>
+
+
+    </div> <!-- Закрывающий тег для div.product-images -->
+
+    <!-- Информация о продукте -->
+    <div class="product-info">
+      <h1 th:text="${sneaker.name}">Sneaker Name</h1>
+      <p class="description" th:text="${sneaker.description}">Sneaker Description</p>
+      <p class="price">Price: <span th:text="${sneaker.price} + ' $'">$99.99</span></p>
+    </div>
+  </div>
+</div>
+
+<button class="add-to-cart-button">
+  Добавить в корзину
+</button>
+
+<button class="buy-now-button">
+  Купить сейчас
+</button>
+
+<!-- Кнопка для открытия окна с составом -->
+<button class="composition-button" onclick="openCompositionModal()">
+  Состав
+</button>
+
+<!-- Модальное окно для отображения состава -->
+<div id="compositionModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" id="closeModal" onclick="closeCompositionModal()">&times;</span>
+    <!-- Добавленная надпись -->
+    <p><strong>Состав модели:</strong></p>
+    <!-- Текст с данными состава -->
+    <p id="compositionText" th:text="${sneaker.composition}">Состав товара будет здесь.</p>
+  </div>
+</div>
+
+<!-- Контейнер для выбора размера -->
+<div class="size-selection">
+  <h2>Выберите размер:</h2>
+  <div class="row">
+    <button class="size-button">38</button>
+    <button class="size-button">39</button>
+    <button class="size-button">40</button>
+    <button class="size-button">41</button>
+  </div>
+  <div class="row">
+    <button class="size-button">42</button>
+    <button class="size-button">43</button>
+    <button class="size-button">44</button>
+    <button class="size-button">45</button>
+  </div>
+</div>
+
+<h3 class="available">Доступные цвета:</h3>
+
+<div class="product-color-thumbnails">
+  <div th:each="productColorImage : ${productColorImages}">
+    <button class="thumbnail-button" onclick="changeMainImage([[${productColorImage.imageUrl}]])">
+      <img th:src="${productColorImage.imageUrl}" alt="Product Color Image" class="product-thumbnail">
+    </button>
+  </div>
+</div>
+
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/productDetails.js"></script>
+
+</body>
+</html>

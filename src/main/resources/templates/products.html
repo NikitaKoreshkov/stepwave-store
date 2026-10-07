@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+  <link rel="stylesheet" href="/static/css/products.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+<!-- Серая линия -->
+<div class="gray-line">
+  <button class="btn-top" id="helpBtn">Помощь</button>
+  <span>|</span>
+  <button class="btn-top" id="loginButton" onclick="window.location.href='/signup'">Войти</button>
+  <span>|</span>
+  <button class="btn-top" id="language-btn">Русский</button>
+
+  <!-- Выпадающее окно с выбором языка -->
+  <div class="language-dropdown" id="language-dropdown">
+    <ul>
+      <li>Русский</li>
+      <li>Қазақша</li>
+      <li>English</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Выпадающее окно помощи -->
+<div class="help-dropdown" id="help-dropdown">
+  <ul>
+    <li>Связаться с нами</li>
+    <li>Руководство</li>
+    <li>Акции и скидки</li>
+    <li>Таблица размеров</li>
+    <li>Рекомендации по продукции</li>
+    <li>Отзывы</li>
+  </ul>
+</div>
+
+<!-- Второй прямоугольник -->
+<div class="second-rectangle">
+  <a href="/" class="logo-link">
+    <img src="/static/images/logo/Logo.png" alt="Logo" class="logo-left">
+  </a>
+
+  <div class="nav-links">
+    <a href="http://localhost:8082/products/filter?categoryId=1">
+      <button class="nav-btn">Новинки</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=2">
+      <button class="nav-btn">Мужское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=3">
+      <button class="nav-btn">Женское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=4">
+      <button class="nav-btn">Детское</button>
+    </a>
+    <a href="http://localhost:8082/products/filter?categoryId=6">
+      <button class="nav-btn">Унисекс</button>
+    </a>
+  </div>
+
+  <!-- Форма поиска -->
+  <div class="search-icons">
+    <form action="/products/search" method="get" onsubmit="return checkSearchInput()">
+      <input type="text" name="search" class="search-input" placeholder="Search..." required>
+    </form>
+  </div>
+
+
+
+  <div class="icons">
+      <button class="icon-btn"><img src="/static/images/icons2/Like.png" alt="Like"></button>
+      <button class="icon-btn"><img src="/static/images/icons2/Cart.png" alt="Cart"></button>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="main-container">
+  <!-- Панель фильтров -->
+  <aside class="filters-container" id="filters">
+    <div class="filter-category">
+      <h3 class="filter-title" onclick="toggleFilterOptions(this)">
+        Пол
+        <span class="arrow"></span>
+      </h3>
+      <ul class="filter-options hidden">
+        <li><label><input type="checkbox" name="category" value="2" onchange="filterByCategory()"> Мужской</label></li>
+        <li><label><input type="checkbox" name="category" value="3" onchange="filterByCategory()"> Женский</label></li>
+        <li><label><input type="checkbox" name="category" value="6" onchange="filterByCategory()"> Унисекс</label></li>
+      </ul>
+    </div>
+
+    <div class="filter-category">
+      <h3 class="filter-title" onclick="toggleFilterOptions(this)">
+        Цвет
+        <span class="arrow"></span>
+      </h3>
+      <ul class="filter-options hidden">
+        <li><label><input type="checkbox" name="color" value="Белый" onchange="filterByColor()"> Белый</label></li>
+        <li><label><input type="checkbox" name="color" value="Черный" onchange="filterByColor()"> Черный</label></li>
+        <li><label><input type="checkbox" name="color" value="Красный" onchange="filterByColor()"> Красный</label></li>
+        <li><label><input type="checkbox" name="color" value="Синий" onchange="filterByColor()"> Синий</label></li>
+        <li><label><input type="checkbox" name="color" value="Желтый" onchange="filterByColor()"> Желтый</label></li>
+      </ul>
+    </div>
+
+    <div class="filter-category">
+      <h3 class="filter-title" onclick="toggleFilterOptions(this)">
+        Размер
+        <span class="arrow"></span>
+      </h3>
+      <ul class="filter-options hidden">
+        <li><label><input type="checkbox" name="size" value="38" onchange="filterBySize()"> 38</label></li>
+        <li><label><input type="checkbox" name="size" value="39" onchange="filterBySize()"> 39</label></li>
+        <li><label><input type="checkbox" name="size" value="40" onchange="filterBySize()"> 40</label></li>
+        <li><label><input type="checkbox" name="size" value="41" onchange="filterBySize()"> 41</label></li>
+        <li><label><input type="checkbox" name="size" value="42" onchange="filterBySize()"> 42</label></li>
+        <li><label><input type="checkbox" name="size" value="43" onchange="filterBySize()"> 43</label></li>
+        <li><label><input type="checkbox" name="size" value="44" onchange="filterBySize()"> 44</label></li>
+      </ul>
+    </div>
+
+    <div class="filter-category">
+      <h3 class="filter-title" onclick="toggleFilterOptions(this)">
+        Брэнд
+        <span class="arrow"></span>
+      </h3>
+      <ul class="filter-options hidden">
+        <li><label><input type="checkbox" name="brand" value="1" onchange="filterByBrand()"> Nike</label></li>
+        <li><label><input type="checkbox" name="brand" value="2" onchange="filterByBrand()"> Adidas</label></li>
+        <li><label><input type="checkbox" name="brand" value="3" onchange="filterByBrand()"> Puma</label></li>
+        <li><label><input type="checkbox" name="brand" value="4" onchange="filterByBrand()"> Reebok</label></li>
+        <li><label><input type="checkbox" name="brand" value="5" onchange="filterByBrand()"> Jordan</label></li>
+        <li><label><input type="checkbox" name="brand" value="6" onchange="filterByBrand()"> New Balance</label></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Контейнер продуктов -->
+  <section class="products-container" id="products">
+    <div class="product-header">
+      <h2>Актуальных моделей: <span id="productCount" th:text="${#lists.size(products)}">0</span></h2>
+      <div class="product-actions">
+        <button id="filterToggle" class="btn-action" onclick="toggleFilters()">Показать фильтры</button>
+        <div class="sort-dropdown">
+          <button id="sortToggle" class="btn-action">Сортировать</button>
+          <div class="sort-options" id="sortOptions">
+            <button class="sort-option" onclick="sortProducts('lowToHigh')">По возрастанию цены</button>
+            <button class="sort-option" onclick="sortProducts('highToLow')">По убыванию цены</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Сетка продуктов -->
+    <div class="product-grid">
+      <a th:each="product : ${products}" th:href="@{/productDetails/{id}(id=${product.id})}" class="product-card">
+        <img th:src="${product.imageUrl}" alt="Product Image" class="product-image">
+        <div class="product-info">
+          <h3 th:text="${product.name}" class="product-name">Название продукта</h3>
+          <p th:text="${product.price} + ' USD'" class="product-price">Цена продукта</p>
+        </div>
+      </a>
+    </div>
+
+  </section>
+</div>
+
+<script src="/static/js/scripts.js"></script>
+<script src="/static/js/products.js"></script>
+</body>
+</html>
+
