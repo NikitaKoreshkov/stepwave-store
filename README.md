@@ -1,4 +1,33 @@
-# StepWave: sneaker store on Spring Boot
+<div align="center">
+
+# StepWave — sneaker storefront on Spring Boot
+
+**Server-rendered Thymeleaf, Spring Data JPA on PostgreSQL, and authentication that never trusts the client.**
+Catalog with filters, registration, password reset by e-mail code and a client area —
+13 controllers, 16 templates, 6 entities, written in late 2024 and re-audited in
+October 2026 against the defects listed below.
+
+![Java](https://img.shields.io/badge/java-17-orange?logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring%20Boot-2.7.18-6db33f?logo=springboot&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-16%20templates-131c27)
+![JPA](https://img.shields.io/badge/Spring%20Data%20JPA-PostgreSQL%2014-336791)
+![Security](https://img.shields.io/badge/passwords-BCrypt-informational)
+![Tests](https://img.shields.io/badge/tests-7%20unit-brightgreen)
+![License](https://img.shields.io/badge/license-all%20rights%20reserved-red)
+
+</div>
+
+## The problem
+
+Most portfolio Java shops are Spring plus React with a REST layer nobody secured.
+StepWave is deliberately the older shape: everything renders on the server, the
+session is the source of truth, and there is no API for a client to lie to.
+
+That choice only pays off if it is actually enforced — so the October 2026 pass went
+through the repo item by item and fixed what was not.
+
+---
+
 
 A catalog storefront with registration, password reset by email code and a client area. Server-rendered Thymeleaf pages, Spring Data JPA on PostgreSQL, vanilla JS for the interactive parts. Written in late 2024, revisited in October 2026 to fix the defects listed below.
 
@@ -12,6 +41,8 @@ A catalog storefront with registration, password reset by email code and a clien
     <td><img src=".github/assets/dashboard.jpg" alt="Client area behind login" /></td>
   </tr>
 </table>
+
+---
 
 ## Stack
 
